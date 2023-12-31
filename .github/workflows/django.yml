@@ -23,4 +23,22 @@ jobs:
             - name: Lint with flake8
               run:
                 flake8 .
+            - name: Running the tests
+              run: |
+                python manage.py test
+
+    deploy:
+      runs-on: ubuntu-latest
+      name: deploy our application to heroku
+      steps:
+        - name: checkout
+          uses: actions/checkout@v3
+
+        - name: Deploy
+          uses: akhileshns/heroku-deploy@v3.12.14 # This is the action
+          with:
+              heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+              heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+              heroku_email: "ajayagrawal1905@gmail.com"
+              branch: "main"
 
