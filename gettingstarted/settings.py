@@ -60,6 +60,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'hello.apps.HelloConfig',
     # Use WhiteNoise's runserver implementation instead of the Django default, for dev-prod parity.
     "whitenoise.runserver_nostatic",
     # Uncomment this and the entry in `urls.py` if you wish to use the Django admin feature:
@@ -70,7 +71,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "hello",
 ]
 
 MIDDLEWARE = [
